@@ -6,9 +6,9 @@ class App < Sinatra::Base
     erb :index
   end
 
-  post '/' do
-    text_from_user = params[:user_text]
-
+  post '/' do #CREATE/ reveives form data through params & renders results pg
+    @analyzed_text = TextAnalyzer.new(params[:user_text])
+    
     erb :results
   end
 end
